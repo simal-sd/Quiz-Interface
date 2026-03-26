@@ -5,7 +5,7 @@ service cloud.firestore {
     // Assumed Data Model
     // ===============================================================
     //
-    // Collection: quiz_entries
+    // Collection: quiz_entries_v2
     // Document ID: Auto-generated
     // Fields:
     //   - userName: string (required, < 100 chars) - The display name
@@ -32,7 +32,7 @@ service cloud.firestore {
              data.timestamp is timestamp;
     }
 
-    match /quiz_entries/{entryId} {
+    match /quiz_entries_v2/{entryId} {
       // Anyone can read the leaderboard
       allow read: if true;
       

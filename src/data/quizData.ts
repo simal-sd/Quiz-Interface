@@ -30,7 +30,7 @@ export const quizData = [
     options: [
       { text: "A dark, unused corner in the basement", isCorrect: false },
       { text: "On the stairway landing leading up to the terrace", isCorrect: false },
-      { text: "A well-lit, highly visible common area (like the main lobby)", isCorrect: true },
+      { text: "A well-lit, highly visible common area (like the main lobby and cafeteria)", isCorrect: true },
       { text: "Next to the outdoor dumpster so it's out of the way", isCorrect: false }
     ],
     explanation: "Collection points must be highly visible, well-lit, and easily accessible. Placing them on stairways creates a serious fire and tripping hazard, and hiding them in basements means people simply won't use them!"
@@ -89,10 +89,10 @@ export const quizData = [
     image: "https://images.unsplash.com/photo-1550009158-9ebf69173e03?auto=format&fit=crop&q=80&w=800",
     options: [
       { text: "A standard manual plastic toothbrush", isCorrect: false },
-      { text: "A dead, disposable e-cigarette or vape pen", isCorrect: true },
+      { text: "An electric toothbrush with a built-in battery", isCorrect: true },
       { text: "A reusable, gel-based chemical hand warmer", isCorrect: false },
       { text: "An old, purely mechanical kitchen egg timer", isCorrect: false }
     ],
-    explanation: "Disposable vapes and e-cigarettes are a massive 'invisible e-waste' crisis. They contain highly volatile lithium batteries that cause catastrophic fires in standard recycling trucks and facilities when crushed."
+    explanation: "Electric toothbrushes are a common form of 'invisible e-waste'. Because they are used in the bathroom and often look like regular plastic items, people mistakenly throw them in the regular trash or plastic recycling, but they contain batteries and circuit boards!"
   }
 ];

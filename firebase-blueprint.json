@@ -26,7 +26,7 @@
     }
   },
   "firestore": {
-    "quiz_entries": {
+    "quiz_entries_v2": {
       "schema": {
         "$ref": "#/entities/QuizEntry"
       },
