@@ -1,0 +1,46 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // ===============================================================
+    // Assumed Data Model
+    // ===============================================================
+    //
+    // Collection: quiz_entries
+    // Document ID: Auto-generated
+    // Fields:
+    //   - userName: string (required, < 100 chars) - The display name
+    //   - score: number (required, >= 0) - The number of correct answers
+    //   - totalQuestions: number (required, > 0) - The total number of questions
+    //   - timestamp: timestamp (required) - When the quiz was completed
+    //
+    // ===============================================================
+
+    // ===============================================================
+    // Helper Functions
+    // ===============================================================
+
+    function hasOnlyAllowedFields(fields) {
+      return request.resource.data.keys().hasOnly(fields);
+    }
+
+    function isValidQuizEntry() {
+      let data = request.resource.data;
+      return hasOnlyAllowedFields(['userName', 'score', 'totalQuestions', 'timestamp']) &&
+             data.userName is string && data.userName.size() > 0 && data.userName.size() < 100 &&
+             data.score is number && data.score >= 0 &&
+             data.totalQuestions is number && data.totalQuestions > 0 &&
+             data.timestamp is timestamp;
+    }
+
+    match /quiz_entries/{entryId} {
+      // Anyone can read the leaderboard
+      allow read: if true;
+      
+      // Anyone can submit a score as long as it's valid
+      allow create: if isValidQuizEntry();
+                    
+      // Entries cannot be updated or deleted once created
+      allow update, delete: if false;
+    }
+  }
+}

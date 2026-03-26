@@ -1,0 +1,36 @@
+{
+  "entities": {
+    "QuizEntry": {
+      "title": "QuizEntry",
+      "description": "A user's recorded score for the E-Waste quiz.",
+      "type": "object",
+      "properties": {
+        "userName": {
+          "type": "string",
+          "description": "The display name of the user."
+        },
+        "score": {
+          "type": "number",
+          "description": "The number of correct answers."
+        },
+        "totalQuestions": {
+          "type": "number",
+          "description": "The total number of questions in the quiz."
+        },
+        "timestamp": {
+          "type": "timestamp",
+          "description": "When the quiz was completed."
+        }
+      },
+      "required": ["userName", "score", "totalQuestions", "timestamp"]
+    }
+  },
+  "firestore": {
+    "quiz_entries": {
+      "schema": {
+        "$ref": "#/entities/QuizEntry"
+      },
+      "description": "Stores the quiz results for all users."
+    }
+  }
+}
